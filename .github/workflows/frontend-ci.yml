@@ -1,0 +1,26 @@
+name: Frontend Continuous Integration
+
+on:
+  workflow_call:
+  pull_request:
+    paths:
+      - 'frontend/**'
+    branches:
+      - main
+
+jobs:
+  lint_and_test_frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git Repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm --prefix ./frontend ci
+
+#      - name: Lint
+#        run: npm --prefix ./frontend run lint
+#
+#      - name: Run Tests
+#        run: npm --prefix ./frontend test

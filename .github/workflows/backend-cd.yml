@@ -1,0 +1,34 @@
+name: Deploy Backend to Firebase
+on:
+  workflow_call:
+  workflow_dispatch:  # This line allows the workflow to be run manually
+  push:
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+  pull_request:
+    types: [ closed ]
+    branches:
+      - main
+    paths:
+      - 'backend/**'
+jobs:
+  lint_and_test_backend:
+    uses: ./.github/workflows/backend-ci.yml
+  build_and_deploy_backend:
+    needs: [lint_and_test_backend]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git Repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies backend
+        run: npm --prefix ./backend ci
+
+      - name: Install Firebase CLI & Configure & Deploy to Firebase Functions
+        run: |
+          export GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/gcloud-service-key.json
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GROOVY_GEARBOX_422522_B1}}' > $GOOGLE_APPLICATION_CREDENTIALS
+          npm install -g firebase-tools
+          firebase deploy --only functions

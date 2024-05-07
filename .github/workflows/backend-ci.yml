@@ -1,0 +1,26 @@
+name: Backend Continuous Integration
+
+on:
+  workflow_call:
+  pull_request:
+    paths:
+      - 'backend/**'
+    branches:
+      - main
+
+jobs:
+  lint_and_test_backend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Git Repo
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm --prefix ./backend ci
+
+#      - name: Lint
+#        run: npm --prefix ./backend run lint
+#
+#      - name: Run Tests
+#        run: npm --prefix ./backend test
