@@ -1,16 +1,10 @@
 {
+  "extends": "../tsconfig.base.json",
+  "compileOnSave": true,
   "compilerOptions": {
     "module": "commonjs",
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "outDir": "lib",
-    "sourceMap": true,
-    "strict": true,
-    "target": "ES2022",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "outDir": "lib"
   },
-  "compileOnSave": true,
   "include": [
     "src"
   ]

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "experimentalDecorators": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "strict": true,
+    "target": "ES2022",
+    "sourceMap": true,
+    //  Better compatibility with ESM
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+}
