@@ -1,0 +1,74 @@
+{
+  "name": "atom-challenge-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/backend/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "clean": true,
+        "outputPath": "dist/backend",
+        "rootDir": "apps/backend/src/",
+        "main": "apps/backend/src/../index.ts",
+        "tsConfig": "apps/backend/tsconfig.app.json"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": true,
+          "extractLicenses": true,
+          "namedChunks": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/backend/src/environments/environment.ts",
+              "with": "apps/backend/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": true,
+          "extractLicenses": true,
+          "namedChunks": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/backend/src/environments/environment.ts",
+              "with": "apps/backend/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "watch": {
+      "command": "nx run atom-challenge-backend:build:development --watch"
+    },
+  "serve": {
+    "executor": "@nx/js:node",
+    "defaultConfiguration": "development",
+    "options": {
+      "buildTarget": "atom-challenge-backend:build"
+    },
+    "configurations": {
+      "development": {
+        "buildTarget": "atom-challenge-backend:build:development"
+      },
+      "production": {
+        "buildTarget": "atom-challenge-backend:build:production"
+      }
+    }
+  },
+  "test": {
+    "executor": "@nx/jest:jest",
+    "outputs": [
+      "{workspaceRoot}/coverage/{projectRoot}"
+    ],
+    "options": {
+      "jestConfig": "apps/backend/jest.config.ts"
+    }
+  }
+}
+}

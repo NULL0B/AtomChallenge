@@ -1,17 +1,27 @@
 {
+  "compileOnSave": false,
+  "types": ["reflect-metadata"],
   "compilerOptions": {
-    "noImplicitOverride": true,
-    "noFallthroughCasesInSwitch": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "experimentalDecorators": true,
-    "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "noImplicitReturns": true,
+    "rootDir": ".",
+    "baseUrl": ".",
     "strict": true,
-    "target": "ES2022",
     "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "esnext",
+    "lib": ["ES2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "paths": {},
     //  Better compatibility with ESM
+    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    // Decorators
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
   },
+  "exclude": ["node_modules", "tmp"]
 }

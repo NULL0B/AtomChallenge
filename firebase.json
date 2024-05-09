@@ -5,7 +5,8 @@
   },
   "functions": [
     {
-      "source": "backend",
+      "runtime": "nodejs18",
+      "source": "dist/backend",
       "codebase": "default",
       "ignore": [
         "node_modules",
@@ -15,29 +16,12 @@
         "*.local"
       ],
       "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run build"
+        "npx nx run atom-challenge-backend:build:production"
       ]
     }
   ],
-  "emulators": {
-    "functions": {
-      "port": 5001
-    },
-    "firestore": {
-      "port": 8080
-    },
-    "auth": {
-      "port": 9099
-    },
-    "hosting": {
-      "port": 5000
-    },
-    "ui": {
-      "enabled": true
-    }
-  },
   "hosting": {
-    "public": "public",
+    "public": "dist/frontend",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -54,7 +38,24 @@
       }
     ],
     "predeploy": [
-      "npm --prefix ./frontend run build"
+      "npx nx run atom-challenge-frontend:build:production"
     ]
+  },
+  "emulators": {
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8080
+    },
+    "auth": {
+      "port": 9099
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true
+    }
   }
 }

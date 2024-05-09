@@ -6,13 +6,13 @@ on:
     branches:
       - main
     paths:
-      - 'backend/**'
+      - 'apps/backend/**'
   pull_request:
     types: [ closed ]
     branches:
       - main
     paths:
-      - 'backend/**'
+      - 'apps/backend/**'
 jobs:
   lint_and_test_backend:
     uses: ./.github/workflows/backend-ci.yml
@@ -23,8 +23,8 @@ jobs:
       - name: Checkout Git Repo
         uses: actions/checkout@v4
 
-      - name: Install dependencies backend
-        run: npm --prefix ./backend ci
+      - name: Install dependencies
+        run: npm ci
 
       - name: Install Firebase CLI & Configure & Deploy to Firebase Functions
         run: |

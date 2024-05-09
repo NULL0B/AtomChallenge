@@ -1,0 +1,40 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compileOnSave": true,
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "compilerOptions": {
+    "module": "commonjs",
+//    "paths": {
+//      "@src/*": [
+//        "apps/backend/src/*"
+//      ],
+//      "@routes/*": [
+//        "apps/backend/src/routes/*"
+//      ],
+//      "@models/*": [
+//        "apps/backend/src/models/*"
+//      ],
+//      "@services/*": [
+//        "apps/backend/src/services/*"
+//      ],
+//      "@middlewares/*": [
+//        "apps/backend/src/middlewares/*"
+//      ],
+//      "@dto/*": [
+//        "apps/backend/src/dto/*"
+//      ],
+//      "@controllers/*": [
+//        "apps/backend/src/controllers/*"
+//      ]
+//    }
+  }
+}
