@@ -1,5 +1,5 @@
 {
-  "name": "@atom-challenge/source",
+  "name": "atom-challenge",
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
@@ -21,7 +21,7 @@
         "options": {
           "commands": [
             "npx nx run-many --target=watch",
-            "npx nx run --target=emulator"
+            "npx nx run atom-challenge:emulator"
           ],
           "parallel": true
         }
@@ -66,6 +66,7 @@
     "@angular/compiler-cli": "~17.3.0",
     "@angular/language-service": "~17.3.0",
     "@nx/devkit": "19.0.1",
+    "@nx/esbuild": "^19.0.1",
     "@nx/eslint": "19.0.1",
     "@nx/eslint-plugin": "19.0.1",
     "@nx/express": "^19.0.1",
@@ -82,10 +83,12 @@
     "@types/node": "18.16.9",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
+    "esbuild": "^0.19.2",
     "eslint": "~8.57.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-playwright": "^0.15.3",
     "firebase-functions-test": "^3.2.0",
+    "firebase-tools": "^13.8.1",
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-environment-node": "^29.4.1",

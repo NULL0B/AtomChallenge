@@ -59,6 +59,9 @@
     "watch": {
       "command": "nx run atom-challenge-frontend:build:development --watch"
     },
+    "deploy": {
+      "command": "firebase deploy --only \"hosting\""
+    },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {

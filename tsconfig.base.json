@@ -15,13 +15,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {},
-    //  Better compatibility with ESM
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    // Decorators
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "emitDecoratorMetadata": true
   },
   "exclude": ["node_modules", "tmp"]
 }
