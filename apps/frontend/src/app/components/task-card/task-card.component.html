@@ -1,0 +1,79 @@
+<form #taskForm="ngForm" novalidate autocomplete="off">
+    <mat-card class="dashboard-card dotted-workspace-background" [appearance]="'outlined'">
+        <mat-card-header class="custom-mat-card-header">
+            <mat-card-title class="task-title" [class.task-title-wrap]="wrapped">
+                <input
+                    matInput
+                    name="title"
+                    placeholder="Task Title"
+                    class="title-input"
+                    [disabled]="readOnly"
+                    [ngModel]="task.title" />
+                <div class="task-title">
+                    <mat-chip [disabled]="readOnly">
+                        {{ " Created: " + (task.createdAt | date: "short") }}
+                    </mat-chip>
+                    <!--Using new If block-->
+                    @if (task.completed) {
+                        <mat-chip [disabled]="readOnly">
+                            <div class="flex-aligned">
+                                <mat-icon>done_all</mat-icon>
+                                <span>Completed</span>
+                            </div>
+                        </mat-chip>
+                    }
+                    <button
+                        mat-icon-button
+                        class="more-button"
+                        type="button"
+                        aria-label="Toggle menu"
+                        [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu" xPosition="before">
+                        <!-- Hidden form input in order to have it present in the ngform
+                         and be able to use template based forms (not my favorites) for demo purposes
+                         -->
+                        <input #completedInput="ngModel" type="hidden" name="completed" [ngModel]="task.completed" />
+                        <button
+                            *ngIf="!task.completed; else markAsIncomplete"
+                            type="button"
+                            aria-label="Mark Task as Complete"
+                            mat-menu-item
+                            (click)="taskForm.control.markAsDirty(); completedInput.control.setValue(true)">
+                            <mat-icon>done_all</mat-icon>
+                            Mark as Complete
+                        </button>
+                        <ng-template #markAsIncomplete>
+                            <button
+                                mat-menu-item
+                                type="button"
+                                aria-label="Mark Task as Incomplete"
+                                (click)="taskForm.control.markAsDirty(); completedInput.control.setValue(false)">
+                                <mat-icon>remove_done</mat-icon>
+                                Mark as Incomplete
+                            </button>
+                        </ng-template>
+                        <button mat-menu-item type="button" aria-label="Delete Task" (click)="deleteTask()">
+                            <mat-icon>delete</mat-icon>
+                            Delete Task
+                        </button>
+                    </mat-menu>
+                </div>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+            <mat-form-field class="custom-expanded-mat-field">
+                <textarea
+                    name="description"
+                    matInput
+                    placeholder="Task Description"
+                    [disabled]="readOnly"
+                    [ngModel]="task.description"></textarea>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-progress-bar mode="indeterminate" [ngStyle]="{ display: loading ? 'block' : 'none' }" />
+        </mat-card-footer>
+    </mat-card>
+</form>

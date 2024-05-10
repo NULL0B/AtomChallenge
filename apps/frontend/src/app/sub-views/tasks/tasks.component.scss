@@ -1,0 +1,19 @@
+:host {
+   display: block;
+    background: inherit;
+}
+.grid-container {
+    height: 100%;
+    //margin: 20px;
+}
+
+.virtual-scroll-viewport {
+    height: calc(100vh - 64px);
+}
+
+
+.fab-main {
+    position: fixed;
+    right: 4em;
+    bottom: 4em;
+} 

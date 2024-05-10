@@ -1,0 +1,42 @@
+<div class="grid-container">
+    <cdk-virtual-scroll-viewport
+        class="virtual-scroll-viewport"
+        orientation="vertical"
+        [itemSize]="wrapped ? 403 : 151"
+        [minBufferPx]="wrapped ? 403 : 151"
+        [maxBufferPx]="wrapped ? 403 : 151"
+        [appendOnly]="true"
+        (scrolledIndexChange)="lazyLoadNewTasks()">
+        <mat-grid-list #gridList cols="2" rowHeight="100px">
+            <!--   Will not use new @for block but cdk virtual for directive         -->
+            <!--            @for (task of tasks; let i = $index; track task) {-->
+            <mat-grid-tile
+                *cdkVirtualFor="let task of tasks; let i = index; trackBy: trackById"
+                [@enter]="{ value: '', params: { delay: ((i % 8) + 1) * 100 } }"
+                [@leave]
+                [colspan]="taskCard.cols"
+                [rowspan]="taskCard.rows">
+                <app-task-card
+                    #taskCard
+                    [maxCols]="gridList.cols"
+                    [wrapped]="wrapped"
+                    [task]="task"
+                    (cardResized)="cardResized()"
+                    (taskChange)="updateTaskList(task, $event)" />
+            </mat-grid-tile>
+            <!--            }-->
+        </mat-grid-list>
+    </cdk-virtual-scroll-viewport>
+    <button
+        mat-fab
+        color="primary"
+        class="fab-main"
+        type="button"
+        matTooltip="Add New Task"
+        matTooltipHideDelay="100000"
+        aria-label="Add New Task"
+        [matTooltipPosition]="'above'"
+        (click)="addTask()">
+        <mat-icon>add</mat-icon>
+    </button>
+</div>

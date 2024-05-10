@@ -1,0 +1,90 @@
+<form class="login-form" novalidate [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title-group>
+                <mat-card-title>Atom Challenge: Tasks</mat-card-title>
+                <!--Not using mat-card-md-image-->
+                <img
+                    alt="Logo de ATOM Chat"
+                    ngSrc="assets/images/logo-atom-chat.png"
+                    class="side-logo"
+                    width="175"
+                    height="50" />
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row mode-container">
+                <mat-slide-toggle
+                    #register
+                    [ngModelOptions]="{ standalone: true }"
+                    [aria-label]="'New user checkbox'"
+                    [(ngModel)]="isRegistering">
+                    <span>I'm new!!</span>
+                </mat-slide-toggle>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-form-field class="full-width">
+                        <mat-label>Email</mat-label>
+                        <input
+                            id="email"
+                            matInput
+                            type="email"
+                            placeholder="Ex. pat@example.com"
+                            name="email"
+                            formControlName="email" />
+                        @if (signInForm.controls["email"].hasError("required")) {
+                            <mat-error>
+                                Email is
+                                <strong>required</strong>
+                            </mat-error>
+                        }
+                        @if (signInForm.controls["email"].hasError("email")) {
+                            <mat-error>Invalid email address</mat-error>
+                        }
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <mat-form-field class="full-width">
+                    <mat-label>Password</mat-label>
+                    <input
+                        matInput
+                        placeholder="A Very Strong Password ;)"
+                        name="password"
+                        formControlName="password"
+                        [type]="hidePass ? 'password' : 'text'" />
+                    <button
+                        mat-icon-button
+                        matSuffix
+                        type="button"
+                        [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hidePass"
+                        (click)="hidePass = !hidePass">
+                        <mat-icon>{{ hidePass ? "visibility_off" : "visibility" }}</mat-icon>
+                    </button>
+                    @if (signInForm.controls["password"].hasError("required")) {
+                        <mat-error>
+                            Password is
+                            <strong>required</strong>
+                        </mat-error>
+                    }
+                    @if (signInForm.controls["password"].hasError("minlength")) {
+                        <mat-error>
+                            Password length must be at least
+                            <strong>8 chars</strong>
+                        </mat-error>
+                    }
+                </mat-form-field>
+            </div>
+            @if (loginError()) {
+                <mat-error>{{ loginError() }}</mat-error>
+            }
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!signInForm.valid">
+                {{ register.checked ? "Register" : "Log In" }}
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</form>

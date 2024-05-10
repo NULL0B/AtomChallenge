@@ -34,24 +34,36 @@
           "budgets": [
             {
               "type": "initial",
-              "maximumWarning": "500kb",
-              "maximumError": "1mb"
+              "maximumWarning": "10mb",
+              "maximumError": "10mb"
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "10mb",
+              "maximumError": "10mb"
             }
           ],
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "buildOptimizer": true,
+          "optimization": true,
+          "extractLicenses": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "vendorChunk": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/frontend/src/environments/environment.ts",
+              "with": "apps/frontend/src/environments/environment.prod.ts"
+            }
+          ]
         },
         "development": {
           "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
-          "namedChunks": true
+          "namedChunks": true,
+          "vendorChunk": true
         }
       },
       "defaultConfiguration": "production"
@@ -64,6 +76,12 @@
     },
     "serve": {
       "executor": "@angular-devkit/build-angular:dev-server",
+      "options": {
+        "host": "127.0.0.1",
+        "proxyConfig": "apps/frontend/proxy.conf.json",
+        "verbose": false
+        
+      },
       "configurations": {
         "production": {
           "buildTarget": "atom-challenge-frontend:build:production"

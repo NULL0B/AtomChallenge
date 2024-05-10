@@ -1,3 +1,23 @@
-{
-  "singleQuote": true
+﻿{
+  "printWidth": 120,
+  "tabWidth": 4,
+  "useTabs": false,
+  "singleQuote": false,
+  "trailingComma": "none",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "semi": true,
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "arrowParens": "avoid",
+        "proseWrap": "always",
+        "htmlWhitespaceSensitivity": "ignore",
+        "bracketSameLine": true,
+        "parser": "html"
+      }
+    }
+  ]
 }

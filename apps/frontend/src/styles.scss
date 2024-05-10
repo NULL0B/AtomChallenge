@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+@import "assets/styles/theme";
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Inter, "Helvetica Neue", sans-serif; }
+
+//dotted-workspace-background
+body {
+    opacity: 1;
+    background-image: radial-gradient(#ffba00 1px, #ffffff 1px);
+    background-size: 20px 20px;
+}

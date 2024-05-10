@@ -40,3 +40,12 @@ Thumbs.db
 
 .nx/cache
 .angular
+
+
+# Igonre firebase caches
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+firebase-export*
+emulator-data*
+.firebase

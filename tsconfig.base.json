@@ -1,25 +1,25 @@
 {
-  "compileOnSave": false,
-  "types": ["reflect-metadata"],
-  "compilerOptions": {
-    "rootDir": ".",
-    "baseUrl": ".",
-    "strict": true,
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "ES2022",
-    "module": "esnext",
-    "lib": ["ES2022", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "paths": {},
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "types": ["reflect-metadata"],
+    "compilerOptions": {
+        "rootDir": ".",
+        "baseUrl": ".",
+        "strict": true,
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "ES2022",
+        "module": "esnext",
+        "lib": ["ES2022", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "paths": {},
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true
+    },
+    "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,98 @@
+:host {
+    display: block;
+}
+
+.dashboard-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.dashboard-card-content {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.more-button {
+    margin-left: auto;
+}
+
+:host ::ng-deep {
+    .custom-mat-card-header {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .custom-mat-card-header > :first-child, .custom-mat-card-header > :first-child > :first-child {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .custom-expanded-mat-field .mat-mdc-text-field-wrapper {
+        padding-right: 0;
+    }
+
+    .custom-expanded-mat-field .mat-mdc-form-field-subscript-wrapper {
+        height: 2px;
+    }
+
+    .custom-expanded-mat-field [matformfieldlineripple] {
+        display: none;
+    }
+    
+    .custom-expanded-mat-field textarea {
+        resize: none;
+    }
+
+    .custom-expanded-mat-field,
+    .custom-expanded-mat-field div:nth-child(1),
+    .custom-expanded-mat-field div:nth-child(1) div:nth-child(2),
+    .custom-expanded-mat-field div:nth-child(1) div:nth-child(2) textarea {
+        box-sizing: border-box;
+        height: 100% !important;
+        width: 100% !important;
+        max-height: 100% !important;
+        max-width: 100% !important;
+    }
+
+}
+
+.task-title {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    flex: auto 1;
+    gap: 0.5rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+
+    input {
+        width: 100%;
+    }
+}
+
+.task-title-wrap {
+    flex-wrap: wrap-reverse;
+}
+
+
+.title-input, .title-input:focus, .title-input:disabled {
+    background-color: transparent;
+    margin-right: auto;
+    border: none;
+    font-size: 2rem;
+    font-weight: bold;
+    outline: none;
+    max-width: 100%;
+
+    &::placeholder {
+        opacity: 0.5;
+    }
+}
