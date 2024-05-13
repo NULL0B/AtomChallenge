@@ -53,7 +53,8 @@
     .custom-expanded-mat-field,
     .custom-expanded-mat-field div:nth-child(1),
     .custom-expanded-mat-field div:nth-child(1) div:nth-child(2),
-    .custom-expanded-mat-field div:nth-child(1) div:nth-child(2) textarea {
+    .custom-expanded-mat-field div:nth-child(1) div:nth-child(2) textarea,
+    .custom-expanded-mat-field div:nth-child(1) div:nth-child(1) textarea {
         box-sizing: border-box;
         height: 100% !important;
         width: 100% !important;
