@@ -28,6 +28,8 @@ personalizada basada en firebase functions + express inversify + esbuild.
 Todos y cada uno de los archivos fueron creados y configurados desde cero, exceptuando testing, ya que no se llego a
 implementar.
 
+#### El disenno de este proyecto fue basado en la idea de Google Keep.
+
 ### Highlights:
 
 - Responsive.
