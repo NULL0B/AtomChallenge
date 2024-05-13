@@ -50,6 +50,9 @@ export class MainLayoutComponent {
         );
     authService = inject(AuthService);
     router = inject(Router);
+    get userName(): string{
+        return this.authService.user()?.email?.split("@")[0] ?? "";
+    }
 
 
     logout(): void {
