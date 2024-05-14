@@ -43,12 +43,14 @@ Mobile:
 
 
 MainView- Tasks
+
 Desktop:
 ![Screenshot 2024-05-13 071633](https://github.com/NULL0B/AtomChallenge/assets/26231330/78b6ef83-255f-43e1-b60b-b73e931f9aee)
 
 
 
 Mobile:
+
 ![photo_2024-05-13_07-20-51](https://github.com/NULL0B/AtomChallenge/assets/26231330/3c87dfb7-a015-4a9f-92a6-e0cf3d342c0a)
 
 ![photo_2024-05-13_07-20-54](https://github.com/NULL0B/AtomChallenge/assets/26231330/5a397ce3-0c40-4614-a4fc-c86c527de8b0)
